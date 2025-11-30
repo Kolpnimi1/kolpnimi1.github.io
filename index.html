@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>צור קשר - קול פנימי</title>
+    <title>קול פנימי - בלוג על בריאות נפשית, חברה ומה שביניהם</title>
+    <!-- הוו היי! מה קורה? שמע אני לא גאון גדול אבל אם אתה רוצה לעזור לי לתכנת אתה מוזמן!! זה המקסימום ידע שלי :( -->
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* איפוס ועיצוב בסיסי */
         * {
             margin: 0;
             padding: 0;
@@ -13,231 +16,895 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
+        :root {
+            --primary: #6C63FF;
+            --primary-light: #8A85FF;
+            --primary-dark: #5751D9;
+            --secondary: #FF6584;
+            --accent: #36D1DC;
+            --light: #F8F9FF;
+            --dark: #2D3047;
+            --gray: #6C757D;
+            --success: #4CAF50;
+            --warning: #FFC107;
+            --danger: #F44336;
+            --text: #333333;
+            --text-light: #6C757D;
+            --shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.12);
+            --border-radius: 16px;
+            --transition: all 0.3s ease;
+        }
+        
         body {
-            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-            color: #333;
-            min-height: 100vh;
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        /* עיצוב כותרת האתר */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            z-index: 1;
+        }
+        
+        .site-title {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .site-subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            opacity: 0.95;
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* עיצוב תפריט ניווט */
+        nav {
+            background-color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
             justify-content: center;
-            align-items: center;
-            padding: 20px;
         }
         
-        .container {
-            width: 100%;
-            max-width: 900px;
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
-        
-        .card {
-            background-color: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        .nav-link {
+            color: var(--dark);
+            text-decoration: none;
+            padding: 0.7rem 1.8rem;
+            margin: 0 0.3rem;
+            border-radius: 50px;
+            transition: var(--transition);
+            font-weight: 500;
+            position: relative;
             overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--primary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
         }
         
-        .profile-section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 40px 20px;
-            text-align: center;
+        .nav-link:hover {
+            color: var(--primary);
         }
         
-        .profile-image {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid #6a11cb;
-            margin-bottom: 20px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        .nav-link:hover::before {
+            transform: scaleX(1);
         }
         
-        .profile-name {
-            font-size: 2.2rem;
-            margin-bottom: 10px;
-            color: #2c3e50;
-            font-weight: 700;
+        /* עיצוב תוכן ראשי */
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2.5rem;
         }
         
-        .profile-description {
-            font-size: 1.1rem;
-            color: #7f8c8d;
-            max-width: 600px;
-            line-height: 1.6;
-        }
-        
-        .links-section {
-            padding: 30px;
-        }
-        
-        .section-title {
-            font-size: 1.8rem;
-            margin-bottom: 25px;
-            color: #2c3e50;
-            text-align: center;
+        /* עיצוב כרטיסי מאמרים */
+        .article-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin-bottom: 2.5rem;
+            transition: var(--transition);
             position: relative;
         }
         
-        .section-title::after {
+        .article-card::before {
             content: '';
-            display: block;
-            width: 60px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
             height: 4px;
-            background: linear-gradient(to right, #6a11cb, #2575fc);
-            margin: 10px auto;
-            border-radius: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0);
+            transition: transform 0.5s ease;
+            z-index: 1;
         }
         
-        .links-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
+        .article-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
         }
         
-        .link-card {
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(0, 0, 0, 0.05);
+        .article-card:hover::before {
+            transform: scaleX(1);
         }
         
-        .link-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        .article-image {
+            width: 100%;
+            height: 240px;
+            background-color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
         }
         
-        .link-icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
+        .article-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4));
+            z-index: 1;
         }
         
-        .tiktok { color: #000000; }
-        .instagram { 
-            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .email { color: #ea4335; }
-        .coffee { color: #8B4513; }
-        
-        .link-title {
+        .article-image .image-text {
+            position: relative;
+            z-index: 2;
             font-size: 1.3rem;
-            margin-bottom: 10px;
-            color: #2c3e50;
-            font-weight: 600;
+            padding: 0.5rem 1rem;
+            background: rgba(0,0,0,0.5);
+            border-radius: 8px;
         }
         
-        .link-description {
-            color: #7f8c8d;
-            margin-bottom: 15px;
+        .article-content {
+            padding: 2rem;
+        }
+        
+        .article-title {
+            font-size: 1.6rem;
+            margin-bottom: 0.8rem;
+            color: var(--dark);
+            line-height: 1.3;
+        }
+        
+        .article-meta {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1.2rem;
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        
+        .article-excerpt {
+            margin-bottom: 1.8rem;
+            color: var(--text);
+            font-size: 1.05rem;
+        }
+        
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
+        }
+        
+        .read-more:hover {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(108, 99, 255, 0.4);
+        }
+        
+        /* עיצוב סרגל צד */
+        .sidebar {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 100px;
+        }
+        
+        .sidebar-section {
+            margin-bottom: 2.5rem;
+        }
+        
+        .sidebar-title {
+            font-size: 1.3rem;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.7rem;
+            border-bottom: 2px solid #f1f1f1;
+            color: var(--dark);
+            position: relative;
+        }
+        
+        .sidebar-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            right: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--primary);
+        }
+        
+        .coming-soon {
+            background: linear-gradient(135deg, #f8f9ff 0%, #f0f2ff 100%);
+            border-radius: 12px;
+            padding: 1.8rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .coming-soon h3 {
+            color: var(--dark);
+            margin-bottom: 0.7rem;
+            font-size: 1.2rem;
+        }
+        
+        .coming-soon p {
+            color: var(--text-light);
             font-size: 0.95rem;
         }
         
-        .link-button {
-            display: inline-block;
-            padding: 10px 20px;
-            background: linear-gradient(to right, #6a11cb, #2575fc);
+        .social-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .social-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.7rem;
+            padding: 1rem;
+            border-radius: 12px;
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            transition: var(--transition);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .social-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .instagram {
+            background: linear-gradient(135deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+        }
+        
+        .email {
+            background: linear-gradient(135deg, #EA4335, #FBBC05);
+        }
+        
+        /* עיצוב כפתור תמכו בי */
+        .coffee-container {
+            text-align: center;
+            margin: 1rem 0;
+        }
+        
+        .coffee-button {
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #FF813F 0%, #FF0099 50%, #FD1D1D 100%);
             color: white;
             text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(106, 17, 203, 0.3);
+            padding: 1.5rem 1.8rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(255, 129, 63, 0.3);
+            transition: var(--transition);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
         }
         
-        .link-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(106, 17, 203, 0.4);
+        .coffee-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(255, 129, 63, 0.5);
+            background: linear-gradient(135deg, #FF944F 0%, #FF1A9A 50%, #FD3535 100%);
         }
         
-        .footer {
+        .coffee-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+        }
+        
+        .coffee-button:hover::before {
+            transform: translateX(100%);
+        }
+        
+        .coffee-icon {
+            font-size: 2.2rem;
+            margin-left: 1.2rem;
+            flex-shrink: 0;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .coffee-text {
+            text-align: right;
+            flex-grow: 1;
+        }
+        
+        .coffee-main {
+            display: block;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+        
+        .coffee-sub {
+            display: block;
+            font-size: 0.95rem;
+            opacity: 0.9;
+            font-weight: 400;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+        
+        /* אנימציה עדינה לקפה */
+        @keyframes coffeeSteam {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-3px) scale(1.05); }
+        }
+        
+        .coffee-icon i {
+            animation: coffeeSteam 3s ease-in-out infinite;
+        }
+
+        
+        /* עיצוב תחתית האתר */
+        footer {
+            background: linear-gradient(135deg, var(--dark) 0%, #3a3e5c 100%);
+            color: white;
+            padding: 3rem 0 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 1.5rem;
+        }
+        
+        .footer-section {
+            flex: 1;
+            margin: 0 1.5rem;
+        }
+        
+        .footer-title {
+            font-size: 1.3rem;
+            margin-bottom: 1.2rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            right: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--primary);
+        }
+        
+        .footer-links {
+            list-style-type: none;
+        }
+        
+        .footer-link {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-link a {
+            color: #d1d1e0;
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+        
+        .footer-link a:hover {
+            color: var(--primary-light);
+            transform: translateX(-5px);
+        }
+        
+        .copyright {
             text-align: center;
-            padding: 20px;
-            color: rgba(255, 255, 255, 0.8);
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #a0a0b0;
             font-size: 0.9rem;
         }
         
+        .construction-notice {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-light);
+            font-style: italic;
+            background-color: white;
+            border-radius: var(--border-radius);
+            margin-top: 2rem;
+            box-shadow: var(--shadow);
+            border: 1px dashed var(--primary-light);
+        }
+        
+        /* עיצוב באנר אזהרה ותמיכה */
+        .warning-banner {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            border-radius: var(--border-radius);
+            margin: 2rem auto;
+            max-width: 1200px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(231, 76, 60, 0.15);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(231, 76, 60, 0.2);
+        }
+
+        .warning-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #e74c3c, #f39c12, #e74c3c);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 1; }
+        }
+
+        .warning-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .warning-icon {
+            font-size: 3.2rem;
+            color: #e74c3c;
+            flex-shrink: 0;
+        }
+
+        .warning-text {
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        .warning-text h3 {
+            color: #2d3436;
+            margin-bottom: 0.7rem;
+            font-size: 1.5rem;
+        }
+
+        .warning-text p {
+            color: #636e72;
+            margin: 0;
+            font-size: 1.15rem;
+            line-height: 1.5;
+        }
+
+        .warning-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            flex-shrink: 0;
+        }
+
+        .support-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            padding: 0.9rem 1.5rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            text-align: center;
+            justify-content: center;
+            white-space: nowrap;
+        }
+
+        .emergency-btn {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white;
+            border: 2px solid #c0392b;
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+        }
+
+        .emergency-btn:hover {
+            background: linear-gradient(135deg, #c0392b 0%, #a93226 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+        }
+
+        .support-btn:not(.emergency-btn) {
+            background: white;
+            color: var(--dark);
+            border: 2px solid #bdc3c7;
+        }
+
+        .support-btn:not(.emergency-btn):hover {
+            background: #f8f9fa;
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* רספונסיביות */
+        @media (max-width: 968px) {
+            .warning-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 1.5rem;
+            }
+            
+            .warning-icon {
+                font-size: 2.8rem;
+            }
+            
+            .warning-buttons {
+                flex-direction: row;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            .support-btn {
+                flex: 1;
+                min-width: 160px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .warning-banner {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+            
+            .warning-text h3 {
+                font-size: 1.3rem;
+            }
+            
+            .warning-text p {
+                font-size: 1rem;
+            }
+            
+            .warning-buttons {
+                flex-direction: column;
+            }
+            
+            .support-btn {
+                width: 100%;
+            }
+        }
+        
+        /* עיצוב רספונסיבי */
         @media (max-width: 768px) {
-            .profile-image {
-                width: 150px;
-                height: 150px;
-            }
-            
-            .profile-name {
-                font-size: 1.8rem;
-            }
-            
-            .links-grid {
+            .container {
                 grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+            
+            .footer-section {
+                margin-bottom: 2rem;
+            }
+            
+            .nav-container {
+                flex-wrap: wrap;
+            }
+            
+            .coffee-button {
+                padding: 1.2rem;
+            }
+            
+            .coffee-icon {
+                font-size: 1.8rem;
+                margin-left: 1rem;
+            }
+            
+            .coffee-main {
+                font-size: 1.2rem;
+            }
+            
+            .site-title {
+                font-size: 2.5rem;
+            }
+            
+            .site-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .sidebar {
+                position: static;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="card profile-section">
-            <img src="profile.png" alt="תמונת פרופיל" class="profile-image">
-            <h1 class="profile-name">קול פנימי</h1>
-            <p class="profile-description">ברוכים הבאים לעמוד הקשר שלי. אשמח לשמוע מכם ולחבר בין הלבבות. מוזמנים ליצור איתי קשר דרך אחת מהפלטפורמות הבאות.</p>
+    <!-- כותרת האתר -->
+    <header>
+        <h1 class="site-title">קול פנימי</h1>
+        <p class="site-subtitle">בלוג על התמודדות נפשית, חברה ומה שביניהם</p>
+    </header>
+    
+    <!-- תפריט ניווט -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="nav-link">בית</a>
+            <a href="about.html" class="nav-link">אודות</a>
+            <a href="contact.html" class="nav-link">צור קשר</a>
         </div>
+    </nav>
+    
+    <!-- באנר אזהרה ותמיכה -->
+    <div class="warning-banner">
+        <div class="warning-content">
+            <div class="warning-icon">
+                <i class="fas fa-heart-circle-exclamation"></i>
+            </div>
+            <div class="warning-text">
+                <h3>תמיכה מקצועית זמינה</h3>
+                <p>האתר עוסק בנושאים רגישים נפשיים. אם אתה במצוקה - מוקדי הסיוע כאן עבורך 24/7</p>
+            </div>
+            <div class="warning-buttons">
+                <a href="tel:1201" class="support-btn emergency-btn">
+                    <i class="fas fa-phone"></i>
+                    ער"ן - 1201
+                </a>
+                <a href="https://sahar.org.il" target="_blank" class="support-btn">
+                    <i class="fas fa-hands-helping"></i>
+                    סה"ר - סיוע באינטרנט
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- תוכן ראשי -->
+    <div class="container">
+    
+       <!-- אזור המאמרים -->
+        <main>
+            <!-- מאמר 4 - Shadow Work -->
+<article class="article-card">
+    <div class="article-image" style="background-image: url('Shadowwork.jpg');">
+        <div class="image-text">Shadow Work והתמודדות עם הצל</div>
+    </div>
+    <div class="article-content">
+        <h2 class="article-title">העבודה שאנשים מפחדים לעשות: מה באמת קורה כשנכנסים ל-Shadow Work</h2>
+        <div class="article-meta">
+            <span><i class="far fa-calendar"></i> פורסם ב-16 לנובמבר 2025</span>
+            <span><i class="far fa-clock"></i> זמן קריאה: 8 דקות</span>
+        </div>
+        <p class="article-excerpt">
+            לחקור את הצל שלך זה לא טרנד רוחני — זו התמודדות עם מה שמנהל לך את החיים מאחורי הקלעים.
+        </p>
+        <a href="Shadowwork.html" class="read-more">קראו עוד<i class="fas fa-arrow-left"></i></a>
+    </div>
+</article>
+           <!-- מאמר 3 - טראומה ואהבה -->
+           <article class="article-card">
+               <div class="article-image" style="background-image: url('childhood-trauma-love.jpg');">
+                   <div class="image-text">טראומה בילדות והשפעתה על אהבה</div>
+               </div>
+               <div class="article-content">
+                   <h2 class="article-title">איך טראומה בילדות משפיעה על היכולת לאהוב מישהו בבגרות</h2>
+                   <div class="article-meta">
+                       <span><i class="far fa-calendar"></i> פורסם ב -10 לנובמבר 2025</span>
+                       <span><i class="far fa-clock"></i> זמן קריאה: 8 דקות</span>
+                   </div>
+                   <p class="article-excerpt">
+                       כשגדלים בתוך כאב, אהבה כבר לא מרגישה כמו ביטחון — היא מרגישה כמו מבחן. המוח רוצה להתקרב, אבל הגוף נדרך...
+                   </p>
+                   <a href="childhood-trauma-love.html" class="read-more">קראו עוד <i class="fas fa-arrow-left"></i></a>
+               </div>
+           </article>
+                       
+          <!-- מאמר 2 - Splitting -->
+          <article class="article-card">
+               <div class="article-image" style="background-image: url('black-and-white-heart-splitting-trauma.jpg');">
+                   <div class="image-text">Splitting וטראומה מורכבת</div>
+               </div>
+               <div class="article-content">
+                   <h2 class="article-title">לחיות בין הכול לכלום: כש-Splitting שולט במערכת היחסים שלך עם עצמך</h2>
+                   <div class="article-meta">
+                       <span><i class="far fa-calendar"></i> פורסם ב-5 לנובמבר 2025</span>
+                       <span><i class="far fa-clock"></i> זמן קריאה: 5 דקות</span>
+                   </div>
+                   <p class="article-excerpt">
+                       כשהעולם מתחלק לשחור או לבן, והלב לא מצליח להחזיק באמצע – כך נראית חצייה (Splitting) אצל מי שמתמודד עם טראומה מורכבת.
+                   </p>
+                   <a href="living-between-everything-and-nothing.html" class="read-more">קראו עוד <i class="fas fa-arrow-left"></i></a>
+               </div>
+           </article>
+           
+           
+           <!-- מאמר 1 -->
+           <article class="article-card">
+               <div class="article-image" style="background-image: url('sad man.jpg');">
+                   <div class="image-text">בריאות נפשית גברית</div>
+               </div>
+               <div class="article-content">
+                   <h2 class="article-title">המשבר השקט: בריאות הנפש הגברית</h2>
+                   <div class="article-meta">
+                       <span><i class="far fa-calendar"></i> פורסם ב-24 לאוקטובר 2025</span>
+                       <span><i class="far fa-clock"></i> זמן קריאה: 7 דקות</span>
+                   </div>
+                   <p class="article-excerpt">
+                       בעוד ששיעורי ההתאבדות במין הגברי גבוהה פי ארבעה מאשר מהמין הנשי, הנתונים מראים שרק כ-30% מהפונים לקווי הסיוע הם גברים. כיצד "הכלוב הבלתי נראה" של הגבריות הפטריארכלית תורם למשבר זה?
+                   </p>
+                   <a href="mentalhelthman.html" class="read-more">קראו עוד <i class="fas fa-arrow-left"></i></a>
+               </div>
+           </article>
+         
         
-        <div class="card links-section">
-            <h2 class="section-title">דרכי התקשרות</h2>
-            <div class="links-grid">
-                <div class="link-card">
-                    <div class="link-icon tiktok">
-                        <i class="fab fa-tiktok"></i>
-                    </div>
-                    <h3 class="link-title">טיק טוק</h3>
-                    <p class="link-description">עקבו אחרי התוכן שלי בטיק טוק</p>
-                    <a href="https://www.tiktok.com/@kol_.pnimi?is_from_webapp=1&sender_device=pc" target="_blank" class="link-button">לערוץ שלי</a>
-                </div>
-                
-                <div class="link-card">
-                    <div class="link-icon instagram">
+        <!-- סרגל צד -->
+        <aside class="sidebar">
+            <!-- הצטרפו לקהילה -->
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">הצטרפו לקהילה</h3>
+                <div class="social-buttons">
+                    <a href="https://www.instagram.com/_kol_pnimi?igsh=MWZjam5tZTJhYzN5ag==" class="social-button instagram" target="_blank">
                         <i class="fab fa-instagram"></i>
-                    </div>
-                    <h3 class="link-title">אינסטגרם</h3>
-                    <p class="link-description">עקבו אחרי באינסטגרם</p>
-                    <a href="https://www.instagram.com/kol_.pnimi/" target="_blank" class="link-button">לעמוד שלי</a>
-                </div>
-                
-                <div class="link-card">
-                    <div class="link-icon coffee">
-                        <i class="fas fa-coffee"></i>
-                    </div>
-                    <h3 class="link-title">תרומה</h3>
-                    <p class="link-description">תמכו בי ותרמו לקפה של הבוקר</p>
-                    <a href="https://buymeacoffee.com/kolpnimi" target="_blank" class="link-button">לתרומה</a>
-                </div>
-                
-                <div class="link-card">
-                    <div class="link-icon email">
+                        עקבו אחרי באינסטגרם
+                    </a>
+                    <a href="mailto:pnimi.kol@gmail.com?subject=הודעה מהאתר" class="social-button email">
                         <i class="fas fa-envelope"></i>
-                    </div>
-                    <h3 class="link-title">אימייל</h3>
-                    <p class="link-description">שלחו לי הודעה ישירות למייל</p>
-                    <a href="mailto:pnimi.kol@gmail.com" class="link-button">שלחו מייל</a>
+                        שלחו לי דוא"ל
+                    </a>
                 </div>
+            </div>
+            
+            <!-- תמכו בי -->
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">תמכו בי</h3>
+                <div class="coffee-container">
+                    <a href="https://buymeacoffee.com/kol.pnimi" class="coffee-button" target="_blank">
+                        <div class="coffee-icon">
+                            <i class="fas fa-mug-hot"></i>
+                        </div>
+                        <div class="coffee-text">
+                            <span class="coffee-main">תמכו בפרויקט</span>
+                            <span class="coffee-sub">ותמכו בכתיבה שלי</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- בקרוב בבלוג -->
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">בקרוב בבלוג</h3>
+                <div class="coming-soon">
+                    <h3>נושאים חדשים בדרך</h3>
+                    <p>אנו עובדים על תוכן חדש בנושאים נוספים שיפורסם כאן בהקדם.</p>
+                </div>
+            </div>
+        </aside>
+    </div>
+    
+    <!-- תחתית האתר -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 class="footer-title">קול פנימי</h3>
+                <p>בלוג ועיון על פמיניזם, בריאות הנפש, פסיכולוגיה ורוחניות.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">קישורים מהירים</h3>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="index.html"><i class="fas fa-home"></i> בית</a></li>
+                    <li class="footer-link"><a href="about.html"><i class="fas fa-user"></i> אודות</a></li>
+                    <li class="footer-link"><a href="contact.html"><i class="fas fa-envelope"></i> צור קשר</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">עקבו אחרי</h3>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="https://www.instagram.com/_kol_pnimi?igsh=MWZjam5tZTJhYzN5ag==" target="_blank"><i class="fab fa-instagram"></i> אינסטגרם</a></li>
+                    <li class="footer-link"><a href="mailto:pnimi.kol@gmail.com"><i class="fas fa-envelope"></i> דוא"ל</a></li>
+                    <li class="footer-link"><a href="https://buymeacoffee.com/kol.pnimi" target="_blank"><i class="fas fa-mug-hot"></i> תמכו בפרויקט</a></li>
+                </ul>
             </div>
         </div>
         
-        <div class="footer">
-            <p>© 2025 קול פנימי - כל הזכויות שמורות</p>
+        <div class="copyright">
+            © 2025 נכתב באהבה על ידי R.S
         </div>
-    </div>
+    </footer>
 </body>
 </html>
