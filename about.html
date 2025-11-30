@@ -1,0 +1,560 @@
+
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אודות - קול פנימי</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* איפוס ועיצוב בסיסי */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #6C63FF;
+            --primary-light: #8A85FF;
+            --primary-dark: #5751D9;
+            --secondary: #FF6584;
+            --accent: #36D1DC;
+            --light: #F8F9FF;
+            --dark: #2D3047;
+            --gray: #6C757D;
+            --success: #4CAF50;
+            --warning: #FFC107;
+            --danger: #F44336;
+            --text: #333333;
+            --text-light: #6C757D;
+            --shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.12);
+            --border-radius: 16px;
+            --transition: all 0.3s ease;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        /* עיצוב כותרת האתר */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            z-index: 1;
+        }
+        
+        .site-title {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .site-subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            opacity: 0.95;
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* עיצוב תפריט ניווט */
+        nav {
+            background-color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .nav-link {
+            color: var(--dark);
+            text-decoration: none;
+            padding: 0.7rem 1.8rem;
+            margin: 0 0.3rem;
+            border-radius: 50px;
+            transition: var(--transition);
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--primary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+        }
+        
+        .nav-link:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .nav-link.active {
+            color: var(--primary);
+        }
+        
+        .nav-link.active::before {
+            transform: scaleX(1);
+        }
+        
+        /* עיצוב תוכן ראשי */
+        .container {
+            max-width: 1000px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+        
+        /* עיצוב דף אודות */
+        .about-hero {
+            background: linear-gradient(135deg, rgba(108, 99, 255, 0.05) 0%, rgba(54, 209, 220, 0.05) 100%);
+            border-radius: var(--border-radius);
+            padding: 3rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(108, 99, 255, 0.1);
+        }
+        
+        .about-hero h1 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .about-hero h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            right: 0;
+            width: 80px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 3px;
+        }
+        
+        .about-hero p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .about-section {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--accent));
+            opacity: 0.8;
+        }
+        
+        .about-section:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .about-section h2 {
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .about-section h2 i {
+            color: var(--primary);
+        }
+        
+        .about-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: var(--text);
+        }
+        
+        .about-section p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .highlight {
+            background: linear-gradient(135deg, rgba(108, 99, 255, 0.1) 0%, rgba(54, 209, 220, 0.1) 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .highlight p {
+            font-size: 1.15rem;
+            font-style: italic;
+            color: var(--dark);
+            margin: 0;
+            text-align: center;
+        }
+        
+        .mission-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            border-radius: var(--border-radius);
+            padding: 3rem;
+            margin: 3rem 0;
+            color: white;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+        
+        .mission-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .mission-section p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .value-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .value-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .value-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .value-card h3 {
+            font-size: 1.3rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+        
+        .value-card p {
+            color: var(--text);
+            font-size: 1rem;
+        }
+        
+        /* עיצוב תחתית האתר */
+        footer {
+            background: linear-gradient(135deg, var(--dark) 0%, #3a3e5c 100%);
+            color: white;
+            padding: 3rem 0 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 1.5rem;
+        }
+        
+        .footer-section {
+            flex: 1;
+            margin: 0 1.5rem;
+        }
+        
+        .footer-title {
+            font-size: 1.3rem;
+            margin-bottom: 1.2rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            right: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--primary);
+        }
+        
+        .footer-links {
+            list-style-type: none;
+        }
+        
+        .footer-link {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-link a {
+            color: #d1d1e0;
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+        
+        .footer-link a:hover {
+            color: var(--primary-light);
+            transform: translateX(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #a0a0b0;
+            font-size: 0.9rem;
+        }
+        
+        /* עיצוב רספונסיבי */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .about-hero {
+                padding: 2rem 1.5rem;
+            }
+            
+            .about-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .about-section {
+                padding: 2rem 1.5rem;
+            }
+            
+            .mission-section {
+                padding: 2rem 1.5rem;
+            }
+            
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+            
+            .footer-section {
+                margin-bottom: 2rem;
+            }
+            
+            .nav-container {
+                flex-wrap: wrap;
+            }
+            
+            .site-title {
+                font-size: 2.5rem;
+            }
+            
+            .site-subtitle {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- כותרת האתר -->
+    <header>
+        <h1 class="site-title">קול פנימי</h1>
+        <p class="site-subtitle">בלוג על התמודדות נפשית, חברה ומה שביניהם</p>
+    </header>
+    
+    <!-- תפריט ניווט -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="nav-link">בית</a>
+            <a href="about.html" class="nav-link active">אודות</a>
+            <a href="contact.html" class="nav-link">צור קשר</a>
+        </div>
+    </nav>
+    
+    <!-- תוכן ראשי -->
+    <div class="container">
+        <!-- כותרת הדף -->
+        <div class="about-hero">
+            <h1>הסיפור שלי</h1>
+            <p>מסע מהצללים אל האור - ואיך הפכתי את הכאב שלי למקור של תקווה לאחרים</p>
+        </div>
+        
+        <!-- סיפור אישי -->
+        <div class="about-section">
+            <h2><i class="fas fa-seedling"></i> ההתחלה</h2>
+            <p>במהלך גיל ההתבגרות חייתי תחת מסגרות שיקומיות, כצעירה בסיכון שאיבדה תקווה לעתיד.</p>
+            <p>יצאתי מבית שכלל התעללות בין מינית, לפסיכולוגית. מקום לנפש מעולם לא היה.</p>
+            <p>כשהרווחה התערבה, עברתי למסגרות סגורות, התמודדתי עם דיכאון עמוק שכמעט הכריע אותי, ונשארתי לבדי.</p>
+            <p>כמעט ויתרתי על עצמי.</p>
+        </div>
+        
+        <!-- התהליך -->
+        <div class="about-section">
+            <h2><i class="fas fa-heart"></i> הדרך לריפוי</h2>
+            <p>עם השנים למדתי לרפא את המקומות הכואבים ההם, מצאתי את הקול שלי, והיום – אחרי עשור של טיפולים פסיכולוגיים ומקצועיים – החלטתי להשתמש בו כדי לדבר על נושאים שחשובים לי באמת: שוויון, בריאות נפש, פסיכולוגיה, ורוחניות בגישה עדינה ומעשית.</p>
+            
+            <div class="highlight">
+                <p>כל התוכן באתר זה נכתב ומופק בהתנדבות מלאה, מתוך אמונה עמוקה בחשיבות הנגשת ידע וכלים לבריאות הנפש. אין כאן מטרות רווח - רק רצון אמיתי לעזור ולשתף.</p>
+            </div>
+        </div>
+        
+        <!-- המקום הזה -->
+        <div class="about-section">
+            <h2><i class="fas fa-home"></i> המקום הזה</h2>
+            <p>המקום הזה נולד מתוך רצון לתת קול לילדה שהייתי – לילדה שלא יכלה לבטא את מצוקתה, שדיכאו והקטינו את כאבה. כל מילה כאן נכתבת מתוך ניסיון אישי ותוך המשך תהליך ריפוי מה-PTSD שאובחנתי בו.</p>
+        </div>
+        
+        <!-- המטרה שלי -->
+        <div class="mission-section">
+            <h2>המטרה שלי</h2>
+            <p>המטרה שלי פשוטה: להגיע לצעירים ולבוגרים מכל שכבות החברה, לפתוח שיח אמיץ על חשיבות הבריאות הנפשית, על אמונה (גם שאינה דתית), ועל חוויית המטופל – כדי לעזור לאנשי מקצוע להבין טוב יותר את הצד השני של הקליניקה, ולעזור לאנשים שחוששים לפנות לטיפול – לדעת שהם לא לבד.</p>
+        </div>
+        
+        <!-- ערכים -->
+        <div class="about-section">
+            <h2><i class="fas fa-star"></i> הערכים שלי</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h3>אמפתיה</h3>
+                    <p>להקשיב באמת, להבין לעומק, ולתת מקום לכל רגש</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>בטיחות</h3>
+                    <p>ליצור מרחב מוגן שבו אפשר להיות פגיעים ואמיתיים</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>תמיכה</h3>
+                    <p>לתת יד למי שמרגיש אבוד, מבלי לשפוט או לבקר</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- סיכום -->
+        <div class="about-section">
+            <h2><i class="fas fa-feather-alt"></i> המילים שלי</h2>
+            <p>כמי שהתמודדה עם נטיות הרסניות בעקבות תחושת נטישה עמוקה – החלטתי להפוך את הכאב לכלי של משמעות.</p>
+            <p>הקול שלי, זה שפעם דמם, היום נועד לעזור – ואולי אפילו להציל חיים.</p>
+            <p>כל מה שנכתב כאן נכתב מהלב, מתוך תשוקה אמיתית, תקווה ורצון להעניק לאחרים את המילים שהייתי זקוקה להן בילדותי.</p>
+            <p style="font-weight: 600; color: var(--primary); text-align: center; margin-top: 1.5rem;">כי לכולם מגיע קול.</p>
+        </div>
+    </div>
+    
+    <!-- תחתית האתר -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 class="footer-title">קול פנימי</h3>
+                <p>בלוג ועיון על פמיניזם, בריאות הנפש, פסיכולוגיה ורוחניות.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">קישורים מהירים</h3>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="index.html"><i class="fas fa-home"></i> בית</a></li>
+                    <li class="footer-link"><a href="about.html"><i class="fas fa-user"></i> אודות</a></li>
+                    <li class="footer-link"><a href="contact.html"><i class="fas fa-envelope"></i> צור קשר</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">עקבו אחרי</h3>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="https://www.instagram.com/_kol_pnimi?igsh=MWZjam5tZTJhYzN5ag==" target="_blank"><i class="fab fa-instagram"></i> אינסטגרם</a></li>
+                    <li class="footer-link"><a href="mailto:pnimi.kol@gmail.com"><i class="fas fa-envelope"></i> דוא"ל</a></li>
+                    <li class="footer-link"><a href="https://buymeacoffee.com/kol.pnimi" target="_blank"><i class="fas fa-mug-hot"></i> תמכו בפרויקט</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            © 2025 נכתב באהבה על ידי R.S
+        </div>
+    </footer>
+</body>
+</html>
+```
