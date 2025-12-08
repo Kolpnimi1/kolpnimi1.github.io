@@ -1,3 +1,8 @@
+# עדכון לדף המאמר עם מקורות
+
+הנה הקוד המעודכן עם חלק המקורות בסוף המאמר:
+
+```html
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
@@ -305,6 +310,57 @@
             gap: 0.5rem;
         }
         
+        /* עיצוב מקורות */
+        .sources-section {
+            background: linear-gradient(135deg, #f5f5f5 0%, #eeeeee 100%);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            margin: 3rem 0;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .sources-section h3 {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary);
+        }
+        
+        .source-category {
+            margin-bottom: 2rem;
+        }
+        
+        .source-category h4 {
+            font-size: 1.2rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .source-category ul {
+            margin-right: 1.5rem;
+        }
+        
+        .source-category li {
+            margin-bottom: 0.8rem;
+            padding-right: 1rem;
+            line-height: 1.6;
+        }
+        
+        .source-link {
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .source-link:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+        
         .support-section {
             background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
             border-radius: var(--border-radius);
@@ -471,6 +527,10 @@
             
             .article-image {
                 height: 250px;
+            }
+            
+            .sources-section {
+                padding: 2rem 1.5rem;
             }
             
             .article-navigation {
@@ -648,6 +708,48 @@
                 <p>"המסך לא ילך לשום מקום. השאלה היא אם אנחנו עדיין פה."</p>
             </div>
             
+            <!-- חלק המקורות -->
+            <div class="sources-section">
+                <h3><i class="fas fa-book"></i> מקורות וקריאה נוספת</h3>
+                
+                <div class="source-category">
+                    <h4><i class="fas fa-heartbeat"></i> הפרעות אכילה ודיסמורפיה</h4>
+                    <ul>
+                        <li><a href="https://pubmed.ncbi.nlm.nih.gov/" class="source-link" target="_blank">PubMed</a> – עלייה עולמית בהפרעות אכילה (2000–2018)</li>
+                        <li><a href="https://www.researchgate.net/" class="source-link" target="_blank">ResearchGate</a> – סקירת מטא־אנליזה גלובלית</li>
+                        <li>כנסת ישראל – נתוני בני נוער עם הפרעות אכילה</li>
+                    </ul>
+                </div>
+                
+                <div class="source-category">
+                    <h4><i class="fas fa-brain"></i> דיכאון, חרדה והתמכרות למסך</h4>
+                    <ul>
+                        <li><a href="https://www.theatlantic.com/" class="source-link" target="_blank">The Atlantic</a> – Have Smartphones Destroyed a Generation?</li>
+                        <li><a href="https://www.theguardian.com/" class="source-link" target="_blank">The Guardian</a> – דיווחים על עלייה בחרדה ודיכאון בקרב נערות עקב אינסטגרם</li>
+                        <li><a href="https://jamanetwork.com/journals/jamapediatrics" class="source-link" target="_blank">JAMA Pediatrics</a> – זמן מסך ותסמיני דיכאון</li>
+                        <li><a href="https://www.nih.gov/" class="source-link" target="_blank">NIH</a> – בריאות נפשית ושימוש אינטנסיבי ברשתות</li>
+                        <li><a href="https://www.commonsensemedia.org/" class="source-link" target="_blank">Common Sense Media</a> – עלייה בבדידות אצל צעירים</li>
+                    </ul>
+                </div>
+                
+                <div class="source-category">
+                    <h4><i class="fas fa-user-circle"></i> דימוי גוף ופילטרים</h4>
+                    <ul>
+                        <li><a href="https://www.wsj.com/" class="source-link" target="_blank">WSJ</a> – חשיפת הדו״ח הפנימי של Meta על השפעה שלילית על נערות</li>
+                        <li><a href="https://www.apa.org/" class="source-link" target="_blank">APA</a> – מחקרים על דיסמורפיה בעידן הפילטרים</li>
+                        <li><a href="https://baaps.org.uk/" class="source-link" target="_blank">BAAPS</a> – "Snapchat Dysmorphia"</li>
+                    </ul>
+                </div>
+                
+                <div class="source-category">
+                    <h4><i class="fas fa-globe"></i> עיוות מציאות ורשתות</h4>
+                    <ul>
+                        <li><a href="https://guilfordjournals.com/loi/jscp" class="source-link" target="_blank">Journal of Social and Clinical Psychology</a> – שימוש ברשתות וירידה ברווחה</li>
+                        <li><a href="https://www.pewresearch.org/" class="source-link" target="_blank">Pew Research Center</a> – השוואה חברתית ובדידות</li>
+                    </ul>
+                </div>
+            </div>
+            
             <div class="article-navigation">
                 <a href="./index.html" class="nav-button">
                     <i class="fas fa-arrow-right"></i>
@@ -672,25 +774,4 @@
             <div class="footer-section">
                 <h3 class="footer-title">קישורים מהירים</h3>
                 <ul class="footer-links">
-                    <li class="footer-link"><a href="./index.html"><i class="fas fa-home"></i> בית</a></li>
-                    <li class="footer-link"><a href="./about.html"><i class="fas fa-user"></i> אודות</a></li>
-                    <li class="footer-link"><a href="./contact.html"><i class="fas fa-envelope"></i> צור קשר</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h3 class="footer-title">עקבו אחרי</h3>
-                <ul class="footer-links">
-                    <li class="footer-link"><a href="https://www.instagram.com/_kol_pnimi?igsh=MWZjam5tZTJhYzN5ag==" target="_blank"><i class="fab fa-instagram"></i> אינסטגרם</a></li>
-                    <li class="footer-link"><a href="mailto:pnimi.kol@gmail.com"><i class="fas fa-envelope"></i> דוא"ל</a></li>
-                    <li class="footer-link"><a href="https://buymeacoffee.com/kol.pnimi" target="_blank"><i class="fas fa-mug-hot"></i> תמכו בפרויקט</a></li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="copyright">
-            © 2025 נכתב באהבה על ידי R.S
-        </div>
-    </footer>
-</body>
-</html>
+                    <li class
