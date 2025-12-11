@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>האמת הכואבת לנפגעי פגיעה מינית: על פגיעה שנייה, PTSD וחשיבות האמון - קול פנימי</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* איפוס ועיצוב בסיסי - אותו עיצוב מהאתר הראשי */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #6C63FF;
+            --primary-light: #8A85FF;
+            --primary-dark: #5751D9;
+            --secondary: #FF6584;
+            --accent: #36D1DC;
+            --light: #F8F9FF;
+            --dark: #2D3047;
+            --gray: #6C757D;
+            --success: #4CAF50;
+            --warning: #FFC107;
+            --danger: #F44336;
+            --text: #333333;
+            --text-light: #6C757D;
+            --shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.12);
+            --border-radius: 16px;
+            --transition: all 0.3s ease;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        /* עיצוב כותרת האתר */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            z-index: 1;
+        }
+        
+        .site-title {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .site-subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            opacity: 0.95;
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* עיצוב תפריט ניווט */
+        nav {
+            background-color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .nav-link {
+            color: var(--dark);
+            text-decoration: none;
+            padding: 0.7rem 1.8rem;
+            margin: 0 0.3rem;
+            border-radius: 50px;
+            transition: var(--transition);
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--primary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+        }
+        
+        .nav-link:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .nav-link.active {
+            color: var(--primary);
+        }
+        
+        .nav-link.active::before {
+            transform: scaleX(1);
+        }
+        
+        /* עיצוב תוכן ראשי */
+        .container {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+        
+        /* עיצוב דף מאמר */
+        .article-header {
+            margin-bottom: 3rem;
+        }
+        
+        .article-title {
+            font-size: 2.5rem;
+            color: var(--dark);
+            line-height: 1.3;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+        
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .article-image {
+            width: 100%;
+            height: 400px;
+            background-color: #e0e0e0;
+            background-image: url('sexual-assault-recovery.jpg');
+            background-size: cover;
+            background-position: center;
+            border-radius: var(--border-radius);
+            margin-bottom: 2.5rem;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+        
+        .article-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4));
+            border-radius: var(--border-radius);
+        }
+        
+        /* באנר חירום לנפגעי תקיפה מינית */
+        .emergency-banner {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin: 2.5rem 0;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .emergency-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b6b, #ffffff, #ff6b6b);
+            animation: shimmer 2s ease-in-out infinite;
+        }
+        
+        @keyframes shimmer {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 1; }
+        }
+        
+        .emergency-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .emergency-icon {
+            font-size: 2.5rem;
+            color: white;
+            flex-shrink: 0;
+        }
+        
+        .emergency-header h3 {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0;
+        }
+        
+        .emergency-numbers {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .emergency-number {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: var(--transition);
+        }
+        
+        .emergency-number:hover {
+            background: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .number-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        
+        .number-details h4 {
+            color: #333;
+            margin-bottom: 0.3rem;
+            font-size: 1.1rem;
+        }
+        
+        .number-details p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .emergency-link {
+            color: #ff6b6b;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: inline-block;
+        }
+        
+        .emergency-note {
+            color: white;
+            font-size: 0.9rem;
+            text-align: center;
+            margin-top: 1rem;
+            opacity: 0.9;
+        }
+        
+        .article-content {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 3rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 2.5rem;
+        }
+        
+        .article-content p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            margin-bottom: 1.8rem;
+            color: var(--text);
+        }
+        
+        .article-content h2 {
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin: 2.5rem 0 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-light);
+        }
+        
+        .article-content h3 {
+            font-size: 1.4rem;
+            color: var(--dark);
+            margin: 2rem 0 1rem;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(108, 99, 255, 0.08) 0%, rgba(54, 209, 220, 0.08) 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2.5rem 0;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .highlight-box p {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--dark);
+            margin: 0;
+            text-align: center;
+        }
+        
+        .quote {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            margin: 2.5rem 0;
+            color: white;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+        
+        .quote p {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin: 0;
+            line-height: 1.6;
+        }
+        
+        .data-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin: 2.5rem 0;
+            border: 1px solid rgba(33, 150, 243, 0.2);
+        }
+        
+        .data-box h3 {
+            color: #1976d2;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .data-box ul {
+            margin-right: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .data-box li {
+            margin-bottom: 0.8rem;
+            padding-right: 1rem;
+        }
+        
+        .warning-box {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin: 2.5rem 0;
+            border: 1px solid rgba(255, 152, 0, 0.2);
+        }
+        
+        .warning-box h3 {
+            color: #f57c00;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* עיצוב מקורות */
+        .sources-section {
+            background: linear-gradient(135deg, #f5f5f5 0%, #eeeeee 100%);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            margin: 3rem 0;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .sources-section h3 {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary);
+        }
+        
+        .source-item {
+            margin-bottom: 1.2rem;
+            padding-bottom: 1.2rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .source-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .source-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-block;
+            margin-bottom: 0.3rem;
+            transition: var(--transition);
+        }
+        
+        .source-link:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+        
+        .source-description {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .support-section {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            margin: 2.5rem 0;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+        
+        .support-section h3 {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+        
+        .support-section p {
+            font-size: 1.1rem;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+        }
+        
+        .coffee-button {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(135deg, #FF813F 0%, #FF0099 50%, #FD1D1D 100%);
+            color: white;
+            text-decoration: none;
+            padding: 1.2rem 2rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(255, 129, 63, 0.3);
+            transition: var(--transition);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .coffee-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(255, 129, 63, 0.5);
+            background: linear-gradient(135deg, #FF944F 0%, #FF1A9A 50%, #FD3535 100%);
+        }
+        
+        .coffee-button i {
+            margin-left: 0.8rem;
+            font-size: 1.5rem;
+        }
+        
+        .article-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-button {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            padding: 1rem 1.5rem;
+            background: white;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--dark);
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            font-weight: 500;
+        }
+        
+        .nav-button:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+            color: var(--primary);
+        }
+        
+        /* עיצוב תחתית האתר */
+        footer {
+            background: linear-gradient(135deg, var(--dark) 0%, #3a3e5c 100%);
+            color: white;
+            padding: 3rem 0 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 1.5rem;
+        }
+        
+        .footer-section {
+            flex: 1;
+            margin: 0 1.5rem;
+        }
+        
+        .footer-title {
+            font-size: 1.3rem;
+            margin-bottom: 1.2rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            right: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--primary);
+        }
+        
+        .footer-links {
+            list-style-type: none;
+        }
+        
+        .footer-link {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-link a {
+            color: #d1d1e0;
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+        
+        .footer-link a:hover {
+            color: var(--primary-light);
+            transform: translateX(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #a0a0b0;
+            font-size: 0.9rem;
+        }
+        
+        /* עיצוב רספונסיבי */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .article-title {
+                font-size: 2rem;
+            }
+            
+            .article-meta {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+            
+            .article-content {
+                padding: 2rem 1.5rem;
+            }
+            
+            .article-image {
+                height: 250px;
+            }
+            
+            .emergency-numbers {
+                grid-template-columns: 1fr;
+            }
+            
+            .sources-section {
+                padding: 2rem 1.5rem;
+            }
+            
+            .article-navigation {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-button {
+                justify-content: center;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+            
+            .footer-section {
+                margin-bottom: 2rem;
+            }
+            
+            .nav-container {
+                flex-wrap: wrap;
+            }
+            
+            .site-title {
+                font-size: 2.5rem;
+            }
+            
+            .site-subtitle {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- כותרת האתר -->
+    <header>
+        <h1 class="site-title">קול פנימי</h1>
+        <p class="site-subtitle">בלוג על התמודדות נפשית, חברה ומה שביניהם</p>
+    </header>
+    
+    <!-- תפריט ניווט -->
+    <nav>
+        <div class="nav-container">
+            <a href="./index.html" class="nav-link">בית</a>
+            <a href="./about.html" class="nav-link">אודות</a>
+            <a href="./contact.html" class="nav-link">צור קשר</a>
+        </div>
+    </nav>
+    
+    <!-- תוכן ראשי -->
+    <div class="container">
+        <!-- כותרת המאמר -->
+        <div class="article-header">
+            <h1 class="article-title">האמת הכואבת לנפגעי פגיעה מינית</h1>
+            
+            <div class="article-meta">
+                <span><i class="far fa-calendar"></i> 12 בדצמבר 2025</span>
+                <span><i class="far fa-clock"></i> זמן קריאה: 10 דקות</span>
+            </div>
+            
+            <div class="article-image">
+                <!-- התמונה תוטען מ-sexual-assault-recovery.jpg -->
+            </div>
+        </div>
+        
+        <!-- באנר חירום - מוקדי תמיכה -->
+        <div class="emergency-banner">
+            <div class="emergency-header">
+                <div class="emergency-icon">
+                    <i class="fas fa-hand-holding-heart"></i>
+                </div>
+                <h3>מוקדי חירום ותמיכה לנפגעי תקיפה מינית</h3>
+            </div>
+            
+            <div class="emergency-numbers">
+                <div class="emergency-number">
+                    <div class="number-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="number-details">
+                        <h4>מרכז הסיוע לנפגעות תקיפה מינית</h4>
+                        <p>1202 (נשים) | 1203 (גברים)</p>
+                        <a href="tel:1202" class="emergency-link">התקשרו עכשיו</a>
+                    </div>
+                </div>
+                
+                <div class="emergency-number">
+                    <div class="number-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <div class="number-details">
+                        <h4>ער"ן (עזרה ראשונה נפשית)</h4>
+                        <p>סיוע נפשי ראשוני 24/7</p>
+                        <a href="tel:1201" class="emergency-link">התקשרו: 1201</a>
+                    </div>
+                </div>
+                
+                <div class="emergency-number">
+                    <div class="number-icon">
+                        <i class="fas fa-stethoscope"></i>
+                    </div>
+                    <div class="number-details">
+                        <h4>מרכזי סיוע ארציים</h4>
+                        <p>טיפול ותמיכה נפשית</p>
+                        <a href="https://www.1202.org.il" class="emergency-link" target="_blank">לאתר 1202</a>
+                    </div>
+                </div>
+            </div>
+            
+            <p class="emergency-note">כל המוקדים פתוחים 24 שעות ביממה, 7 ימים בשבוע. שיחות מסוקרות וחסויות</p>
+        </div>
+        
+        <!-- תוכן המאמר -->
+        <div class="article-content">
+            <p>יש רגע שאחרי תקיפה מינית שבו העולם אמור להתגייס ולחבק. זה הרגע שבו הקורבן, שבקושי מצליחה לנשום, אוספת את השברים ומספרת את מה שקרה. אבל כשבמקום תמיכה היא נתקלת בספק, בשאלות כוזבות, או בחוסר אמון — הפגיעה הנפשית שנוצרת אחרי הסיפור יכולה להיות חמורה ואפשרית לא פחות מהפגיעה עצמה.</p>
+            
+            <div class="highlight-box">
+                <p>אי־אמון לאחר תקיפה מינית אינו "טעות חברתית" — הוא פוגע ישירות ביכולת של אדם להחלים.</p>
+            </div>
+            
+            <h2>הטראומה הכפולה: הגוף והנפש</h2>
+            
+            <p>התקיפה עצמה מעוררת תגובות פיזיות ונפשיות קיצוניות — פחד, בלבול, תחושת חוסר שליטה — והן לא נעלמות ברגע שהאירוע נגמר. נוסף על PTSD, מחקרים מצביעים על שכיחות גבוהה של דיכאון, חרדה, הפרעות אכילה, הפרעות אישיות ופגיעה ברווחה הנפשית הכללית בקרב שורדות תקיפה מינית.</p>
+            
+            <div class="data-box">
+                <h3><i class="fas fa-chart-bar"></i> נתונים על PTSD אחרי תקיפה מינית:</h3>
+                <ul>
+                    <li>כ־<strong>75%</strong> מהנפגעים עונים לקריטריונים של הפרעת דחק פוסט־טראומטית כחודש לאחר האירוע</li>
+                    <li>כ־<strong>41%</strong> מהם עדיין יעמדו בקריטריונים אחרי שנה</li>
+                    <li>נתונים אלה מדגישים את עוצמת וסביבתיות הטראומה הזו</li>
+                </ul>
+                <p>הפגיעה הראשונה הייתה בגוף. הפגיעה השנייה — בנשמה.</p>
+            </div>
+            
+            <p>כשהסביבה מגיבה בחוסר אמון — בפועל או אפילו בעקיפין — היא מחזקת את תחושת הניכור, משאירה את הקורבן לבד עם האשמה עצמית ועם תחושת שאין לה לגיטימציה לספר את מה שקרה לה.</p>
+            
+            <h2>הקול הפנימי שמתעקש לפקפק בעצמך</h2>
+            
+            <p>לא מדובר רק בתחושת אי־אמון רגעית — זה יכול להפוך לבעיה כרונית. חוסר אמון כלפי הסיפור של הקורבן יכול להתבטא בהטלת ספק בזיכרון שלה, בהכחשה של רגשותיה, ובהצבת תנאים בלתי אפשריים לפני קבלת אמון.</p>
+            
+            <div class="warning-box">
+                <h3><i class="fas fa-exclamation-triangle"></i> התגובה הנפשית העמוקה:</h3>
+                <ul>
+                    <li>הפניית הנזק כלפי פנים</li>
+                    <li>התחלת פקפוק בעצמך ובחוויה שלך</li>
+                    <li>קושי לספר על האירוע בעתיד</li>
+                    <li>מחקרי תמיכה מראים דפוסים של הימנעות ממערכות יחסים</li>
+                    <li>קשיי נשימה וחרדה זמנית או כרונית</li>
+                </ul>
+            </div>
+            
+            <p>סימפטומים המאופיינים במסגרת ה-PTSD, אך מועצמים על ידי התגובה החברתית.</p>
+            
+            <div class="support-section">
+                <h3>תמכו בפרויקט</h3>
+                <p>קנו לי קפה ועיזרו לי להמשיך</p>
+                <a href="https://buymeacoffee.com/kol.pnimi" class="coffee-button" target="_blank">
+                    <i class="fas fa-mug-hot"></i>
+                    תמכו בפרויקט
+                </a>
+            </div>
+            
+            <h2>שיתוק חברתי — מחכה שנים לספר</h2>
+            
+            <div class="data-box">
+                <h3><i class="fas fa-clock"></i> נתונים בינלאומיים מטרידים:</h3>
+                <ul>
+                    <li>כמעט <strong>20%</strong> מהנפגעים מחכים יותר מעשור עד שהם מספרים על התקיפה שלהם</li>
+                    <li>זה בלא קשר לחוויה עצמה, אלא לתגובה החברתית הצפויה</li>
+                    <li>הרבה יותר מחכים לסביבה שמביאה אמון, לפני שהם מספרים אפילו לאדם קרוב</li>
+                </ul>
+                <p>כשתקיפה מינית נפוצה יותר ממה שנהוג לחשוב — לפי הערכות, כ־35% מהנשים בעולם יחוו פגיעה מינית במהלך חייהן — ברור שזה לא רק בעיה אישית, אלא בעיה חברתית מטרידה.</p>
+            </div>
+            
+            <h2>מדוע אמון חשוב כל כך?</h2>
+            
+            <p>אמון אינו שאלה של רוח טובה — הוא מרכיב קריטי בתהליך ההחלמה. כאשר המערכת החברתית, המשפחתית או המקצועית מאמינה לקורבן, נפתחת האפשרות לשיקום — רפואי, פסיכולוגי, רגשי וחברתי. ללא אמון, הטראומה נותרת שקופה וחבויה, והנזק שלה רק מחלחל.</p>
+            
+            <div class="quote">
+                <p>"החזרת האמון היא לא נחמה רכה — היא כלי הישרדות."</p>
+            </div>
+            
+            <!-- חלק המקורות -->
+            <div class="sources-section">
+                <h3><i class="fas fa-book"></i> מקורות וקריאה נוספת</h3>
+                
+                <div class="source-item">
+                    <a href="https://newsroom.uw.edu/news-releases/75-sexual-assault-survivors-have-ptsd-one-month-later" class="source-link" target="_blank">University of Washington Newsroom</a>
+                    <p class="source-description">מחקר: 75% משורדות תקיפה מינית סובלות מ-PTSD חודש לאחר האירוע</p>
+                </div>
+                
+                <div class="source-item">
+                    <a href="https://www.infomed.co.il/articles/3634/" class="source-link" target="_blank">Infomed</a>
+                    <p class="source-description">מטא־אנליזה של 22 מחקרים על PTSD אחרי תקיפה מינית</p>
+                </div>
+                
+                <div class="source-item">
+                    <a href="https://1202.org.il/information-and-data/data/general/" class="source-link" target="_blank">מרכז הסיוע 1202</a>
+                    <p class="source-description">נתונים על שכיחות תקיפה מינית והשפעותיה הנפשיות</p>
+                </div>
+                
+                <div class="source-item">
+                    <a href="https://www.thesun.ie/news/16062783/stigma-sexual-violence-silence-victims-survivors-wait-disclose-stats/" class="source-link" target="_blank">The Sun</a>
+                    <p class="source-description">נתונים על הסטיגמה והשתקה של נפגעי תקיפה מינית</p>
+                </div>
+            </div>
+            
+            <div class="article-navigation">
+                <a href="./index.html" class="nav-button">
+                    <i class="fas fa-arrow-right"></i>
+                    חזרה לדף הראשי
+                </a>
+                <a href="./about.html" class="nav-button">
+                    <i class="fas fa-user"></i>
+                    הכירו אותי
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- תחתית האתר -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 class="footer-title">קול פנימי</h3>
+                <p>בלוג ועיון על פמיניזם, בריאות הנפש, פסיכולוגיה ורוחניות.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">קישורים מהירים</h3>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="./index.html"><i class="fas fa-home"></i> בית</a></li>
+                    <li class="footer-link"><a href="./about.html"><i class="fas fa-user"></i> אודות</a></li>
+                    <li class="footer-link"><a href="./contact.html"><i class="fas fa-envelope"></i> צור קשר</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">עקבו אחרי</h3>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="https://www.instagram.com/_kol_pnimi?igsh=MWZjam5tZTJhYzN5ag==" target="_blank"><i class="fab fa-instagram"></i> אינסטגרם</a></li>
+                    <li class="footer-link"><a href="mailto:pnimi.kol@gmail.com"><i class="fas fa-envelope"></i> דוא"ל</a></li>
+                    <li class="footer-link"><a href="https://buymeacoffee.com/kol.pnimi" target="_blank"><i class="fas fa-mug-hot"></i> תמכו בפרויקט</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            © 2025 נכתב באהבה על ידי R.S
+        </div>
+    </footer>
+</body>
+</html>
